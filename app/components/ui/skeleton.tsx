@@ -3,5 +3,9 @@ type SkeletonProps = {
 };
 
 export function Skeleton({ className = "" }: SkeletonProps) {
-  return <div className={`animate-pulse rounded-md bg-slate-200 ${className}`} />;
+  return (
+    <div
+      className={`animate-pulse rounded-xl border border-white/30 bg-white/45 ${className}`}
+    />
+  );
 }
