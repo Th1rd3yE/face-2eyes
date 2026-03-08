@@ -34,10 +34,10 @@ export default function SourcesCard({ sources }: SourcesCardProps) {
         {sources.map((source, index) => (
           <div
             key={index}
-            className="rounded-2xl border border-white/60 bg-white/75 p-4 transition hover:bg-white"
+            className="overflow-hidden rounded-2xl border border-white/60 bg-white/75 p-4 transition hover:bg-white"
           >
             <div className="flex items-start justify-between gap-3">
-              <p className="font-semibold text-[#24324a]">{source.title}</p>
+              <p className="min-w-0 break-all font-semibold text-[#24324a]">{source.title}</p>
               <span
                 className={`rounded-full px-2.5 py-1 text-xs font-semibold ${getSourceTypeStyles(
                   source.type

@@ -7,6 +7,12 @@ export type Source = {
   type: SourceType;
 };
 
+export type AnalysisStep = {
+  step_type: string;
+  tool_name: string | null;
+  content: string;
+};
+
 export type AnalysisResult = {
   classification: "Likely Accurate" | "Uncertain" | "Potentially Misleading";
   confidence: number;
@@ -28,6 +34,8 @@ export type AnalysisResult = {
 
   viralityRisk: "Low" | "Medium" | "High";
   viralityReasons: string[];
+
+  steps: AnalysisStep[];
 };
 
 export const mockResults: Record<string, AnalysisResult> = {
@@ -81,6 +89,7 @@ export const mockResults: Record<string, AnalysisResult> = {
       "Does not pressure resharing",
       "Contains verifiable context",
     ],
+    steps: [],
   },
 
   uncertain: {
@@ -136,6 +145,7 @@ export const mockResults: Record<string, AnalysisResult> = {
       "Could spread quickly if interpreted as urgent",
       "Not enough context for safe resharing",
     ],
+    steps: [],
   },
 
   misleading: {
@@ -199,5 +209,6 @@ export const mockResults: Record<string, AnalysisResult> = {
       "Pressures immediate resharing",
       "May cause confusion or harm if false",
     ],
+    steps: [],
   },
 };

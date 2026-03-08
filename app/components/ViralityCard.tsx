@@ -39,14 +39,16 @@ export default function ViralityCard({
       <div className={`mt-4 rounded-2xl border p-4 ${styles.box}`}>
         <p className={`text-lg font-semibold ${styles.text}`}>{viralityRisk}</p>
 
-        <ul className="mt-3 space-y-2 text-sm text-slate-700 sm:text-base">
-          {viralityReasons.map((reason, index) => (
-            <li key={index} className="flex items-start gap-3">
-              <span>•</span>
-              <span>{reason}</span>
-            </li>
-          ))}
-        </ul>
+        {viralityReasons.length > 0 && (
+          <ul className="mt-3 space-y-2 text-sm text-slate-700 sm:text-base">
+            {viralityReasons.map((reason, index) => (
+              <li key={index} className="flex items-start gap-3">
+                <span>•</span>
+                <span>{reason}</span>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );

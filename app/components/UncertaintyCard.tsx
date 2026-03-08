@@ -13,33 +13,41 @@ export default function UncertaintyCard({
         What Is Still Unclear
       </h4>
 
-      <ul className="mt-4 space-y-2.5 text-sm text-[#42526b] sm:text-base">
-        {uncertainties.map((item, index) => (
-          <li
-            key={index}
-            className="flex items-start gap-3 rounded-xl bg-white/75 px-3 py-3"
-          >
-            <span>?</span>
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
+      {uncertainties.length > 0 ? (
+        <ul className="mt-4 space-y-2.5 text-sm text-[#42526b] sm:text-base">
+          {uncertainties.map((item, index) => (
+            <li
+              key={index}
+              className="flex items-start gap-3 rounded-xl bg-white/75 px-3 py-3"
+            >
+              <span>?</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="mt-4 text-sm text-[#6b7280]">No uncertainties identified.</p>
+      )}
 
       <h5 className="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
         Missing Context
       </h5>
 
-      <ul className="mt-3 space-y-2.5 text-sm text-[#42526b] sm:text-base">
-        {missingContext.map((item, index) => (
-          <li
-            key={index}
-            className="flex items-start gap-3 rounded-xl bg-white/75 px-3 py-3"
-          >
-            <span>•</span>
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
+      {missingContext.length > 0 ? (
+        <ul className="mt-3 space-y-2.5 text-sm text-[#42526b] sm:text-base">
+          {missingContext.map((item, index) => (
+            <li
+              key={index}
+              className="flex items-start gap-3 rounded-xl bg-white/75 px-3 py-3"
+            >
+              <span>•</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="mt-3 text-sm text-[#6b7280]">No missing context flagged.</p>
+      )}
     </div>
   );
 }
